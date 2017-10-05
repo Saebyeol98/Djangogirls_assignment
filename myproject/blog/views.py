@@ -4,7 +4,7 @@ from blog.models import Post
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__isnull=False)
+    posts = Post.objects.filter(published_date__isnull=False).order_by('-created_date')
     context = {
         'posts': posts,
     }
