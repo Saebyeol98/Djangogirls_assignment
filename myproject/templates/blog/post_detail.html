@@ -17,17 +17,10 @@
     <div class="recent">Recent Posts</div>
     <div class="container">
         <ul class="list">
-            {% for post in posts %}
             <li class="item">
-                <h3><a href="/post/{{ post.id }}">{{ post.title }}</a></h3>
-                <div class="content">{{ post.content|truncatewords:50 }}</div>
-                <div class="info">
-                    <div class="published-date"><span>Date | </span>{{ post.published_date }}</div>
-                    <div class="author"><span>Author | </span>{{ post.author }}</div>
-                </div>
-                
+                <h3><a href="">{{ post.title }}</a></h3>
+                <div class="content">{{ post.content|linebreaksbr }}</div>
             </li>
-            {% endfor %}
         </ul>
     </div>
 </body>
