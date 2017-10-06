@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from blog.models import Post
 
 
@@ -17,3 +16,7 @@ def post_detail(request, pk):
         'post': post
     }
     return render(request, 'blog/post_detail.html', context)
+
+
+def post_add(request):
+    return render(request, 'blog/post_add.html')
