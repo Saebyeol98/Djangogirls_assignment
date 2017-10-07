@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from blog.models import Post
@@ -37,3 +38,13 @@ def post_add(request):
 
     elif request.method == 'GET':
         return render(request, 'blog/post_add.html')
+
+def post_delete(request):
+    if request.method == 'POST':
+        pk = request.POST['pk']
+        post = Post.objects.get(pk=pk)
+        post.delete()
+        return render(request, 'blog/post_delete.html')
+    elif request.method =='GET':
+        return HttpResponse('잘못된 접근 입니다.')
+        return render(request, )
