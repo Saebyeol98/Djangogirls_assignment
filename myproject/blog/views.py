@@ -27,6 +27,8 @@ def post_add(request):
         author = User.objects.get(username='nachwon')
         title = request.POST['title']
         content = request.POST['content']
+        if title == '' or content == '':
+            return redirect(post_add)
         post = Post.objects.create(
             author=author,
             title=title,
@@ -39,12 +41,12 @@ def post_add(request):
     elif request.method == 'GET':
         return render(request, 'blog/post_add.html')
 
-def post_delete(request):
+
+def post_delete(request, pk):
     if request.method == 'POST':
-        pk = request.POST['pk']
         post = Post.objects.get(pk=pk)
         post.delete()
         return render(request, 'blog/post_delete.html')
-    elif request.method =='GET':
+
+    elif request.method == 'GET':
         return HttpResponse('잘못된 접근 입니다.')
-        return render(request, )
