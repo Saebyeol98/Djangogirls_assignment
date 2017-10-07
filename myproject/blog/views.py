@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.contrib.auth import get_user_model
+from django.shortcuts import render, redirect
+
 from blog.models import Post
 
 
@@ -19,4 +21,19 @@ def post_detail(request, pk):
 
 
 def post_add(request):
-    return render(request, 'blog/post_add.html')
+    if request.method == 'POST':
+        User = get_user_model()
+        author = User.objects.get(username='nachwon')
+        title = request.POST['title']
+        content = request.POST['content']
+        post = Post.objects.create(
+            author=author,
+            title=title,
+            content=content,
+        )
+        post.publish()
+        post_pk = post.pk
+        return redirect(post_detail, pk=post_pk)
+
+    elif request.method == 'GET':
+        return render(request, 'blog/post_add.html')

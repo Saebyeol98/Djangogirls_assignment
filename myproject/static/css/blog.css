@@ -1,18 +1,23 @@
 .header {
     background-color: #3F5FA5;
-    color: white;
     padding: 20px 30px;
     border-bottom: 1px solid #3D3D3D;
     margin-bottom: 20px;
-
 }
 
 .header h1 {
+    color: white;
     font-size: 40px;
     font-weight: bolder;
     margin: 0;
     margin-bottom: 10px;
     padding: 0;
+}
+
+.add-post {
+    position: absolute;
+    right: 50px;
+    top: 30px;
 }
 
 .recent {
@@ -55,4 +60,25 @@ a:hover {
     float: right;
 }
 
+#title {
+    margin-bottom: 20px;
+}
 
+#content {
+    margin-bottom: 20px;
+}
+
+.btn {
+    float: right;
+}
+
+.post-add {
+    font-weight: bolder;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: #797979;
+}
+
+.to-main {
+    margin-left: 10px;
+}

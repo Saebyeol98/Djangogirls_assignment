@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', post_list),
     url(r'^post/(?P<pk>\d+)/', post_detail),
-    url(r'^post/add/', post_add),
+    url(r'^post/add/$', post_add, name='post_add'),
 ]
