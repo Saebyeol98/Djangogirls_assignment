@@ -1,3 +1,5 @@
+/* base.html start */
+
 .header {
     background-color: #3F5FA5;
     padding: 20px 30px;
@@ -33,6 +35,10 @@
 a:hover {
     text-decoration: none;
 }
+
+/* base.html - end */
+
+/* post_detail.html -start */
 
 .item{
     overflow: hidden;
@@ -81,4 +87,26 @@ a:hover {
 
 .to-main {
     margin-left: 10px;
+}
+
+.published-detail {
+    font-weight: bold;
+    text-align: right;
+    color: #6D6D6D;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.footer-message {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #636363;
+}
+
+.detail-head {
+    color: #4271ff;
+    font-size: 36px;
 }

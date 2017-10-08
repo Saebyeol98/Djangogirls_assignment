@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.utils.datastructures import MultiValueDictKeyError
 
 from blog.models import Post
 
@@ -27,14 +28,26 @@ def post_add(request):
         author = User.objects.get(username='nachwon')
         title = request.POST['title']
         content = request.POST['content']
+
         if title == '' or content == '':
-            return redirect(post_add)
+            context = {
+                'title': title,
+                'content': content,
+            }
+            return render(request, 'blog/post_add.html', context)
+
         post = Post.objects.create(
             author=author,
             title=title,
             content=content,
         )
-        post.publish()
+
+        try:
+            if request.POST['publish'] == 'True':
+                post.publish()
+        except MultiValueDictKeyError:
+            pass
+
         post_pk = post.pk
         return redirect(post_detail, pk=post_pk)
 

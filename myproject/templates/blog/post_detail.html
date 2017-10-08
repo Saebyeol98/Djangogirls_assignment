@@ -4,7 +4,11 @@
     <div class="container">
         <ul class="list">
             <li class="item">
-                <h3><a href="">{{ post.title }}</a></h3>
+                <h3 class="detail-head" >{{ post.title }}</h3>
+                <div class="published-detail">
+                    <span>{{ post.published_date }} | 작성일</span><br>
+                    <span>{{ post.author }} | 작성자</span>
+                </div>
                 <div class="content">{{ post.content|linebreaksbr }}</div>
             </li>
         </ul>
